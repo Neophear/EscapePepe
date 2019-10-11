@@ -1,0 +1,33 @@
+package modellayer;
+
+/**
+ * Write a description of class Door here.
+ *
+ * @author Stiig
+ * @version 04/04
+ */
+public class Door
+{
+    // instance variables - replace the example below with your own
+    private Room room;
+    private Direction direction;
+    
+    /**
+     * Constructor for objects of class Door
+     */
+    public Door(Room room, Direction direction)
+    {
+        this.room = room;
+        this.direction = direction;
+    }
+    
+    public Room getRoom()
+    {
+        return room;
+    }
+    
+    public Direction getDirection()
+    {
+        return direction
+    }
+}

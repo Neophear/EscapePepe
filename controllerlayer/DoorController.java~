@@ -1,0 +1,40 @@
+package controllerlayer;
+import modellayer.*;
+
+/**
+ * Write a description of class DoorController here.
+ *
+ * @author Stiig
+ * @version 04/04
+ */
+public class DoorController
+{
+    DoorContainer doors;
+    
+    /**
+     * Constructor for objects of class DoorController
+     */
+    public DoorController()
+    {
+        doors = DoorContainer.getInstance();
+    }
+    
+    /**
+     * Creates a door and returns it.
+     */
+    public Door createDoor(Room room, Direction direction)
+    {
+        Door door = new Door(room, direction);
+        doors.addDoor(door);
+        
+        return door;
+    }
+    
+    /**
+     * 
+     */
+    public Door findDoor(Room room, Direction direction)
+    {
+        return doors.findDoor(room, direction);
+    }
+}

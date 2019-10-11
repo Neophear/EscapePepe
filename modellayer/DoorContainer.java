@@ -1,0 +1,57 @@
+package modellayer;
+import java.util.ArrayList;
+
+/**
+ * Write a description of class DoorContainer here.
+ *
+ * @author (your name)
+ * @version (a version number or a date)
+ */
+public class DoorContainer
+{
+    private static DoorContainer instance;
+    private ArrayList<Door> doors;
+    
+    /**
+     * Constructor for objects of class DoorContainer
+     */
+    private DoorContainer()
+    {
+        doors = new ArrayList<>();
+    }
+    
+    public static DoorContainer getInstance()
+    {
+        if (instance == null)
+            instance = new DoorContainer();
+        
+        return instance;
+    }
+    
+    public void addDoor(Door door)
+    {
+        doors.add(door);
+    }
+    
+    /**
+     * Find door that has this room and direction
+     */
+    public Door findDoor(Room room, Direction direction)
+    {
+        boolean found = false;
+        int index = 0;
+        
+        while (!found && index < doors.size())
+        {
+            Door currentDoor = doors.get(index);
+            
+            if (currentDoor.getRoomDoorIsIn() == room && currentDoor.getDirection() == direction)
+                found = true;
+            else
+                index++;
+        }
+        
+        //     hvis:   så:                ellers:
+        return found ? doors.get(index) : null;
+    }
+}
